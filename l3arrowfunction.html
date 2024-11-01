@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Arrow Function</title>
+</head>
+<body>
+    
+
+    <script type="text/javascript">
+
+        // => Template Literals
+
+        let num1 = 100;
+        let num2 = 200;
+        console.log(`${num1+num2}`); // 300
+        console.log(`${num1 > num2 ? "Yes" : "No"}`); // No
+
+        // =>function
+        let getfullname = function(){
+            let firstname = "Aung";
+            let lastname = "Tun Tun";
+            return `${firstname}  ${lastname}`;
+        }
+
+        console.log(getfullname()); // Aung Tun Tun
+
+        let firstname = "Ma Ma";
+        let lastname = "Mya";
+
+        let  getnickname = (fstname,lstname)=>fstname+" "+lstname;
+            getnickname = (fstname,lstname) => (`${fstname} ${lstname}`);
+            getnickname = (fstname,lstname) => `${fstname} ${lstname}`;
+
+            console.log(getnickname(firstname,lastname)); // Ma Ma Mya
+
+
+    </script>
+</body>
+</html>

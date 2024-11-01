@@ -1,0 +1,49 @@
+JAVASCRIPT / ECMASCRIPT / ES2015 / ES2016 / Modern Javascript
+
+JS was launched at 1995.
+
+=> ECMA 
+ECMA International (European Computer Manufactures Association)
+
+1997 - ES1 
+1998 - ES2 
+1999 - ES3 
+ES4 (Never Officially released)
+2009 - ES5
+2015 - ES6  ( Core Programming Language)
+2016 - ES7
+2017 - ES8
+2018 - ES9 
+2019 - ES10 
+2020 - ES11 
+2021 - ES12
+2022 - ES13
+2023 - ES14
+
+https://ecma-international.org/
+
+1. Variable Declaration = let / const
+2. Arrow Functions
+3. Template Literals (``)
+4. Class (prototype)
+5. Modules (import/export)
+6. Destructuring Assignment
+7. Promises (new Promise())
+8. Map, Set
+9. Symbol
+
+=> ES6 ( Variables are declared by : let/ const)
+
+var 
+    - Global and block scope (function , condition, loop)
+    - Value can change
+    - Var shouldn't be used in ES6
+
+let 
+    - Block scope   
+    - Value can change
+
+const 
+    - Block scope
+    - Value can't change
+    
