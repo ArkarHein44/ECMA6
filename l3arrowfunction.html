@@ -33,6 +33,36 @@
 
             console.log(getnickname(firstname,lastname)); // Ma Ma Mya
 
+        // const sayname = (name)=>{
+        //     alert(`${name}`);
+        // };
+
+        // sayname('Aung Aung');
+        // const saycity = (city)=>alert(`Hello ${city}`);
+        // saycity('Mandalay');
+
+        // const sayphonenumber = phone=>alert(`My Phone Number is ${phone}`);
+        // sayphonenumber('09123456789');
+
+        // const callname = name=>{console.log(`Hello ${name}`)};
+        // callname('Su Su');
+
+        let getnum = ()=>{
+            let num1 = 200;
+            return num1;
+        };
+
+        console.log(getnum);
+
+        let getnumber = (num1=100,num2=200)=>{
+            const result = num1+num2;
+            return result;
+        }
+
+        console.log(getnumber(10,50)); // 60
+        console.log(getnumber(10)); // 210
+        console.log(getnumber()); // 300
+
 
     </script>
 </body>

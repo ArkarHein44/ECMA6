@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Iteration</title>
+</head>
+<body>
+    
+
+    <script type="text/javascript">
+
+        //=> Array Callback Method
+
+        // forEach
+        // map
+        // filter
+        // find
+        // reduce
+        // some
+        // every
+
+        // for(let x=0; x < array.length;x++){
+        //     code to be executed;
+        // }
+
+        // for(let key in obj){
+        //     code to be executed;
+        // }
+
+        // for(let value of array){
+        //     code to be executed;
+        // }
+
+        document.write('<h3>For Loop</h3>');
+
+        let mycolors = ["red", "green", "blue", "orange", "grey"];
+
+        for(let x = 0; x < mycolors.length; x++){
+            document.write(mycolors[x] + "<br/>");
+        }
+
+        document.write('<h3>For In Loop</h3>');
+
+        let customers = {
+            name: "Aung Aung",
+            city: "Mandalay",
+            parent: "U Ba",
+            phone: "0123456"
+        }
+
+        console.log(customers);
+        console.log(customers.name);
+        console.log(customers['name']);
+
+        for(let key in customers){
+            // console.log(key);
+            // console.log(customers.key);
+            // console.log(customers[key]);
+
+            document.write(key + " = " + customers[key] + "<br/>");
+        }
+
+        const ourteams = ["Kyaw Kyaw", "aung aung", "zaw zaw", "tar gi"];
+
+        for (let idx in ourteams){
+            // console.log(idx);
+            document.write("for in loop result = " + ourteams[idx] + "<br/>");
+        }
+
+        document.write('<h3>For Of Loop</h3>');
+
+        const members = ["su su", "lu lu", "nu nu", "yu yu"];
+        
+        for(let member of members){
+            // console.log(member);
+            document.write("for of loop result = " + member + "<br/>" );
+        }
+
+        document.write('<h3>forEach Loop</h3>');
+
+        const students = ["su su", "lu lu", "nu nu", "yu yu","phyu phyu"];
+
+        students.forEach(student=>{
+            // console.log(student);
+            document.write("forEach loop result = "+ student + "<br/>");
+        })
+
+        const colors = ["red", "green", "blue", "white", "black"];
+
+        colors.forEach((color,idx)=>{
+            // console.log(`Index number is = ${idx} Color is = ${color}`);
+            document.write(`Index number is = ${idx} Color is = ${color}`);
+        });
+
+
+        document.write('<h3>map Loop</h3>');
+
+        const employees = ["nan nan", "lu lu", "nu nu", "yu yu","phyu phyu"];
+
+        employees.map(employee=>{
+            // console.log(employee);
+            document.write(`map loop result = ${employee} <br/>`);
+        });
+
+        const ladies = employees.map((employee,idx)=>{
+            // return `Ms. ${employee}`;
+            return `${++idx} Ms.${employee}`;
+        });
+
+        console.log(ladies); //  ['1 Ms.nan nan', '2 Ms.lu lu', '3 Ms.nu nu', '4 Ms.yu yu', '5 Ms.phyu phyu']
+
+        const visitors = ["ko sai","m zaw naw","june","htet aung kyaw","paing sis"];
+
+        const guys = visitors.map((visitor)=>`Mr.${visitor}`);
+        console.log(guys);
+
+        visitors.forEach(visitor=>{
+            console.log(`forEach result = Mr.${visitor}`);
+        });
+
+        const sport = "bike";
+        const contestants = ["aung aung","kyaw kyaw","maung maung","tun tun","linn linn"];
+
+        const winners = contestants.map((contestant,idx)=>({
+            name:contestant,
+            // game:sport, // game:'bike'
+            sport,  // sport:'bike'
+            prize:++idx
+        }));
+
+        console.log(winners); // (5) [{…}, {…}, {…}, {…}, {…}]
+
+        // can't assign, forEach not working
+        // const peoples =  visitors.forEach(visitor=>{
+        //     return `Mr.${visitor}`;
+        // });
+        // console.log(peoples); // undefined
+
+        // forEach ကို variable နဲ့ assgin လုပ်လို့မရပါ။ undefined ဖြစ်နေမာပါ။
+        // map ကို variable ထဲ return ပြန်ပြီးထည့်လို့ရတယ်။ loop ပတ်ပီး ရလာတဲ့ element ကို template string နဲ့ ပြန်ပြင်ယူပီး variable ထဲသိမ်းချင်တဲ့အခါ map loop ကိုသုံးမှရပါမယ်။ forEach ကိုသုံးလို့မရပါ။
+
+        document.write('<h3>filter Loop</h3>');
+        const employers = ["yu ya", "lu lu", "nu nu", "yu yu","phyu phyu"];
+
+        const arrs1 = employers.map(employer=>{
+            return employer;
+        });
+
+        console.log(arrs1);
+
+        const arrs2 = arrs1.filter(owner=>{
+            if(owner === "nu nu"){
+                return false;
+            }else{
+                return true;
+            }
+        });
+
+        console.log(arrs2); // ['yu ya', 'lu lu', 'yu yu', 'phyu phyu']
+        console.log(arrs1); // ['yu ya', 'lu lu', 'nu nu', 'yu yu', 'phyu phyu']
+        // မူရင်း array ပေါ်တွင် သက်ရောက်မှုမရှိပါ။ 
+
+        const owners = employers.map(employer=>{
+            return `Ms.${employer}`;
+        }).filter(owner=>{
+            // if(owner === "Ms.nu nu"){
+            //     return false;
+            // }else{
+            //     return true;
+            // }
+
+            if(owner === "Ms.nu nu"){
+                return false;
+            }
+
+            return true;
+        });
+
+        console.log(owners); //  (4) ['Ms.yu ya', 'Ms.lu lu', 'Ms.yu yu', 'Ms.phyu phyu']
+
+        const ages = [20,25,21,17,35,16,50,17,11,80,10,18,12,15,37];
+
+        const getover18 = ages.filter(age=>{
+            return age > 18;
+        });
+
+        console.log(getover18); // (7) [20, 25, 21, 35, 50, 80, 37]
+
+        const getover20 = ages.filter(age=>age >= 20);
+
+        console.log(getover20); // (7) [20, 25, 21, 35, 50, 80, 37]
+
+        document.write('<h3>find Method</h3>');
+        
+
+    </script>
+</body>
+</html>
