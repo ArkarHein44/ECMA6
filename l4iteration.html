@@ -17,6 +17,7 @@
         // reduce
         // some
         // every
+        // include
 
         // for(let x=0; x < array.length;x++){
         //     code to be executed;
@@ -191,7 +192,135 @@
 
         document.write('<h3>find Method</h3>');
         
+        const users = [
+            {name:"aung aung",age:20},
+            {name:"kyaw kyaw",age:21},
+            {name:"tun tun",age:22},
+            {name:"zaw zaw",age:23},
+            {name:"linn linn",age:24}
+        ];
+        //console.log(users);
+
+        // filter return array 
+        const filterresult = users.filter((user)=>{
+            return user.name === "zaw zaw";
+        });
+        console.log(filterresult);
+
+        // find return element 
+        const findresult = users.find((user)=>{
+            return user.name === "zaw zaw";
+        });
+        console.log(findresult);
+
+        const filterbyage = users.filter((user)=>{
+            return user.age > 22;
+        });
+
+        console.log(filterbyage); // return with arrray include 2 obj
+
+        const findbyage = users.find((user)=>{
+            return user.age > 22;
+        });
+
+        console.log(findbyage); // return one obj element
+
+        const posts = [
+            {id:1,title:"New Post One"},
+            {id:2,title:"New Post Two"},
+            {id:3,title:"New Post Three"},
+        ];
+
+        const comment = {post_id:1,message:"nice post one",user_id:10};
+        const postcomment = (posts,comment)=>{
+            return posts.find((post)=>{
+                return post.id === comment.post_id;
+            });
+        };
+
+        console.log(postcomment(posts,comment)); // {id: 1, title: 'New Post One'}
+
+        document.write('<h3>Reduce Method</h3>');
+
+        // syntax => mainarrays.reduce(function(previus value, current value, current index, array),initial value or additional value);
+
+        const amounts = [10,20,30];
+
+        // const result = amounts.reduce((total,curr)=>{
+        //     total += curr;
+        //     return total;
+        // });
+        // console.log(result); // 60
+
+        // const result = amounts.reduce((total,curr)=>{
+        //     total += curr;
+        //     return total;
+        // },0);
+        // console.log(result); // 60
+
+        const result = amounts.reduce((total,curr)=>{
+            total += curr;
+            return total;
+        },10);
+        console.log(result); // 70
+
+        // toFixed(2) = convert int to text and add decimal 
+        const sumresult = amounts.reduce((total, curr)=>(total += curr),0).toFixed(2);
+        console.log(sumresult); // 60.00
+        console.log(typeof sumresult); // string
+
+        const numbers = [10,200,30,40,50,60,70,80,90,100,500,0];
+
+        const getmax = numbers.reduce((prev,curr)=>{
+            if(curr > prev){
+                return curr;
+            };
+
+            return prev;
+        },0);
+
+        console.log(getmax);
+
+        //return    perv    curr
+        //10        10      10
+        //10        10      200
+        //200       200     30
+        //200       ...
+        //500
+
+        const getmin = numbers.reduce((prev,curr)=>{
+            if(curr < prev){
+                return curr;
+            };
+
+            return prev;
+        },0);
+
+        console.log(getmin);
+
+        // some() vs every() return boolean(true/false)
+        // every need to be true all elements and some need at least one element true 
+        const boys = ["aung aung","kyaw kyaw","zin aung","soe aung","moe aung"];
+
+        const checklength = boys.every(boy=>{
+            return boy.length === 9;
+        });
+
+        console.log(checklength); // false
+
+        let firstlettera = boys.every(boy=>boy[0] === "a");
+
+        console.log(firstlettera); // false
+
+        let lastletterwthg = boys.every(boy=>boy[boy.length-1] === 'g');
+        console.log(lastletterwthg); // false
+
+        let firstletterwitha = boys.some(boy=>boy[0] === 'a');
+        console.log(firstletterwitha); // true
 
     </script>
+
 </body>
 </html>
+
+<!-- 22IT -->
