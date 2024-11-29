@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Object Literal</title>
+</head>
+<body>
+    
+
+
+
+
+
+
+    <script type="text/javascript">
+
+        // => Object  
+        
+        let person1 = {
+            name: "Aung Aung",
+            age:20,
+            gender:"male"
+        }
+
+        console.log(person1);  // Aung Aung
+        console.log(person1.name); // Aung Aung
+        console.log(person1['name']);
+
+        person1.city = "Yangon";
+        console.log(person1);
+
+        let person2 = person1;
+        console.log(person2);
+
+        person2.hobby = "sport";
+        person2.age = 30;
+        console.log(person2);
+        console.log(person1);
+
+        let person3 = Object.freeze(person1);
+        console.log(person3);
+
+        person3.phone = "09123456";
+        person3.age = 40;
+        console.log(person3);
+        console.log(person1);
+        console.log(person2); // {name: 'Aung Aung', age: 30, gender: 'male', city: 'Yangon', hobby: 'sport'}
+        console.log(person3.name); // Aung Aung
+        console.log(person3["name"]); // Aung Aung
+
+        const employees = {
+            name: "yu yu",
+            position:"Graphic Designer",
+            salary:700000
+        };
+
+        console.log(employees.name);
+        console.log(employees.position);
+        console.log(employees.salary);
+
+        const { name, salary, position } = employees;
+        console.log(name);
+        console.log(salary);
+        console.log(position);
+
+        const employers = {
+            fullname:"Thuzar Aung",
+            company:"ABC Co.,Ltd",
+            address:"Yangon",
+            posts:{
+                officestaff:{
+                    gender:"Female",
+                    salary:600000
+                },
+                driver:{
+                    gender:"Male",
+                    salary:400000
+                }
+            },
+            links:{
+                social:{
+                    gmail:"hr@abc.com",
+                    facebook:"https://facebook.com/abccompany"
+                }
+            }
+        };
+
+        
+        const { fullname, address, company, posts } = employers;
+        console.log(fullname);
+        console.log(company);
+        console.log(posts.officestaff.gender,posts["officestaff"]["salary"]);
+        console.log(posts.driver.gender,posts.driver["salary"]); 
+
+        //=> Rename or Alias (:)
+        const {gmail : email, facebook : media} = employers.links.social;
+
+        // console.log(gmail, facebook);  // gmail is not defined
+        console.log(email, media);
+
+        // Default Values
+        // object destructuring ပြုလုပ်ရာတွင် variable အား default value သတ်မှတ်ပေးထားပါက မူလ object တွင် key မရှိမှသာ သက်ရောက်မှာဖြစ်ပါတယ်။ မူလ object တွင် variable နှင့် key တူညီနေပါက default value သည် အလုပ်မလုပ်ပါ။
+
+        const configs = {
+            width: 300,
+            color:"Steelblue"
+        }
+
+        const {width=100, margin="10px",color,height=500} = configs;
+
+        console.log(width);
+        console.log(color);
+        console.log(height);
+        console.log(margin); 
+
+        const {bg:background = "white", p:padding = "20px", flex} = { bg: "black" };
+
+        // console.log(bg, p);
+
+        console.log(background); // white
+        console.log(padding); // 20px
+        console.log(flex); // undefined
+
+        // Nested Destructuring
+
+        const student = {
+            name: "Yadanar",
+            address:{
+                city:"Bago",
+                country:"Myanmar"
+            }
+        };
+
+        const { address:{city,country}} = student;
+
+        console.log(city); // Bago
+        console.log(country); // Myanmar
+
+        
+
+
+
+
+    </script>
+
+</body>
+</html>
+
