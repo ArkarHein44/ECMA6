@@ -50,8 +50,44 @@ console.log(third); // 30
 console.log(fourth); // 40
 console.log(fifth); // 50
 
+const colors = ["red", "green", "blue", "white", "black"];
+console.log(colors[0]);
+console.log(colors[3]);
 
+for(const color of colors){
+	console.log(color);
+}
+
+const arrs = colors.entries();
+console.log(arrs);  // Object [Array Iterator] {}
+
+// console.log(arrs.next());  // { value: [ 0, 'red' ], done: false }
+// console.log(arrs.next());  // { value: [ 1, 'green' ], done: false }
+// console.log(arrs.next());  // { value: [ 2, 'blue' ], done: false }
+// console.log(arrs.next());  // { value: [ 3, 'white' ], done: false }
+// console.log(arrs.next());  // { value: [ 4, 'black' ], done: false }
+// console.log(arrs.next());  // { value: undefined, done: true }
+
+// console.log(arrs.next().value[1]);  // red
+// console.log(arrs.next().value[1]);  // green
+// console.log(arrs.next().value[1]);  // blue
+// console.log(arrs.next().value[1]);  // white
+// console.log(arrs.next().value[1]);  // black
+
+for(const color of arrs){
+	// console.log(color);
+	console.log(`Index is ${color[0]} and value is ${color[1]}`);
+}
+
+for(const [idx, color] of arrs){
+	// console.log(color);
+	console.log(`Index is ${idx} and value is ${color}`);
+}
+
+
+// --------------------------------------------------------------------------------
 // find fibonacci sequence in javascript 
+
 let fibseq = (n)=>{
 	let f = 0, s = 1, i=0;
 	
