@@ -192,4 +192,81 @@ console.log(bio);
 //     gender: 'Female'
 // }
 
+bio = {...info, ...profiles, country:"Myanmar", age:40, ..."Yangon"};
+
+console.log(bio);
+// {
+//     '0': 'Y',
+//     '1': 'a',
+//     '2': 'n',
+//     '3': 'g',
+//     '4': 'o',
+//     '5': 'n',
+//     name: 'Honey Nway Oo',
+//     gender: 'Female',
+//     age: 40,
+//     nickname: 'Honey',
+//     country: 'Myanmar'
+//   }
+
+// variable ကို value တိုက်ရိုက်ယူသုံးနိုင်သည်
+// variable ကို key name အဖြစ်သုံးချင်ရင် [] ထဲထည့်ပေးမှရပါမယ်။
+
+const persons = {
+    name:"Hla Nu Tun",
+    gender:"Female",
+    age:22
+};
+
+const phone = "0912345678";
+const country = "Indonesia";
+const key1 = "nickname";
+const key2 = "favcolor";
+
+const customers = {
+    ...persons,
+    hascar:true,
+    tel:phone,
+    country:country,
+    [key1]:"Hla Nu",
+    [key2]:"Pink"
+};
+
+console.log(customers);
+// {
+//     name: 'Hla Nu Tun',
+//     gender: 'Female',
+//     age: 22,
+//     hascar: true,
+//     tel: '0912345678',
+//     country: 'Indonesia',
+//     nickname: 'Hla Nu',
+//     favcolor: 'Pink'
+//   }
+
+const keyassgin = (obj, key, val)=>{
+    const getjob1 = obj;
+        getjob1[key] = val;
+
+        console.log(getjob1);
+
+    const getjob2 = {
+        ...obj
+    };
+
+    getjob2[key] = val;
+
+    console.log(getjob2);;
+
+    const getobj3 = {
+        ...obj,
+        [key]:val
+    };
+
+    console.log(getobj3);
+}
+
+keyassgin(customers,"job","Developer");
+
+
 // 12PO
