@@ -22,3 +22,23 @@ const colourarrs = [...colorset];
 console.log(colourarrs);  // [ 'red', 'green', 'blue' ]
 
 // 20ST 
+// unique value လိုချင်တဲ့အခါ set ကိုသုံးမယ်
+// ဥပမာ array ၂ ခုကို ပေါင်းလိုက်ပီး duplicate value တွေမပါစေချင်တဲ့အခါ
+
+const names = new Set();
+names.add("aung aung");
+names.add("kyaw kyaw");
+names.add("yu yu").add("nu nu").add("hal hal");
+console.log(names); // Set(5) { 'aung aung', 'kyaw kyaw', 'yu yu', 'nu nu', 'hal hal' }
+console.log(names.size); // 5
+console.log(names[0]); // undefined
+
+names.forEach(name=>{
+	console.log(name);
+});
+// aung aung
+// kyaw kyaw
+// yu yu
+// nu nu
+// hal hal
+
