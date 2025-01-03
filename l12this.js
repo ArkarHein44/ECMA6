@@ -154,4 +154,96 @@ obj3.getcity();
 obj3.getjob();
 obj3.getsalary();
 
-// gmail
+// =>let and const are not added value to Window Global Scope 
+// In terminal
+// var name = "aung aung"
+// name; // aung
+// window.name; // aung aung
+// window; // (extend window > name (yes))
+
+// var city = "yangon"
+// city; // yangon
+// window.city; // yangon
+// window; // extend window > city (yes)
+
+// let fullname = "su su"
+// fullname; // susu
+// window.fullname;
+// window;
+
+// let country = "myanmar"
+// country;
+// window.country;
+// window;
+
+// const age = 25
+// age; // 25
+// window.age;
+// window;
+
+const items = {
+	product: "Iphone 16",
+	price:2000,
+	// NRW 
+	info:function(){
+		return `${this.product} Price is base on ${this.price} USD.`;
+	},
+	// NAN 
+	discount:()=>{
+		return `Use ${this.price} USD for ${this.product}! Get 20% cash back!`;
+	},
+}
+
+console.log(items); // 
+console.log(items.info()); // Iphone 16 Price is base on 2000 USD.
+console.log(items.discount()); // Use undefined USD for undefined! Get 20% cash back!
+
+const group = {
+	members:["aung aung", "su su"],
+	groupname:["frontend Designer"],
+
+	// NAN 
+	groupmembers:()=>{
+		console.log(`There are 2 members on this ${this.groupname} group.`);
+	},
+
+	//NRW > CAW
+	groupinfo:function(){
+		return this.members.map(member=>{
+			console.log(`${member} is on ${this.groupname} group.`);
+		});
+	},
+
+	// NRW > CRN 
+	groupsay:function(){
+		return this.members.map(function(member){
+			console.log(`${member} is key person on this ${this.groupname} group.`);
+		});
+	}
+}
+
+console.log(group);
+group.groupmembers();
+group.groupinfo();
+group.groupsay();
+
+const inventroy = [
+	{title:"Redbull", price:2500},
+	{title:"Sponsor", price:1500}
+];
+
+function createitem(inventroy){
+	return {
+		inventroy,
+		itemvalue:function(){
+			return this.inventroy.reduce((total,curr)=>{
+				total += curr.price
+				return total;
+			},0);
+		}
+	}
+}
+
+const getresult = createitem(inventroy);
+console.log(getresult);
+console.log(getresult.itemvalue());
