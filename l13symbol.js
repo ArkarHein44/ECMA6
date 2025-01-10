@@ -132,4 +132,130 @@ console.log(vehicle);
 console.log(vehicle.speed);
 // 110
 
-// gmail
+for(const key in vehicle){
+    console.log(key);
+    // Symbol keys are ignored
+    // brand
+    // madeby
+    // model
+    // state
+    // speed
+    // turnon
+    // turnoff
+    // accelerate
+}
+
+console.log(vehicle.brand); // Toyota
+// console.log(vehicle[madeby]); // madeby is not defined
+console.log(vehicle.action1); // undefined
+console.log(vehicle[action1]); // crusie control
+
+// => Object functions 
+console.log(Object.keys(vehicle));
+// [
+//     'brand',
+//     'madeby',
+//     'model',
+//     'state',
+//     'speed',
+//     'turnon',
+//     'turnoff',
+//     'accelerate'
+//   ]
+// Note:: ( Symbol keys are ignored )
+
+console.log(Object.getOwnPropertyNames(vehicle));
+// [
+//     'brand',
+//     'madeby',
+//     'model',
+//     'state',
+//     'speed',
+//     'turnon',
+//     'turnoff',
+//     'accelerate'
+//   ]
+// Note:: ( Symbol keys are ignored )
+
+console.log(Object.getOwnPropertySymbols(vehicle));
+// [ Symbol(feature), Symbol(feature) ]
+
+// => Symbol.iterator ()
+console.log(Symbol.iterator); //
+console.log(typeof Symbol.iterator); // 
+
+const colors = ["red", "green", "blue"];
+
+for(const value of colors){
+    console.log(value);
+}
+
+console.log(colors.entries()); // Object [Array Iterator] {}
+console.log(colors[Symbol.iterator]()); //Object [Array Iterator] {}
+
+const colorentries = colors.entries();
+// console.log(colorentries.next()); // { value: [ 0, 'red' ], done: false }
+console.log(colorentries.next().value[1]); // red
+console.log(colorentries.next().value[1]); // green
+console.log(colorentries.next().value[1]); // blue
+
+const coloriterators = colors[Symbol.iterator]();
+
+// console.log(coloriterators.next()); // { value: 'red', done: false }
+// console.log(coloriterators.next().value); // // red
+// console.log(coloriterators.next().value); // // green
+// console.log(coloriterators.next().value); // // blue
+
+let colorresults = coloriterators.next();
+console.log(colorresults); // { value: 'red', done: false }
+
+while(!colorresults.done){
+    console.log(colorresults.value);
+    colorresults = coloriterators.next(); // don't forget to stop
+}
+
+// red
+// green
+// blue
+
+// => Symbol iterator with Set()
+const names = new Set();
+names.add("aung aung");
+names.add("kyaw kyaw");
+names.add("yu yu").add("nu nu").add("hal hal");
+console.log(names); // Set(5) { 'aung aung', 'kyaw kyaw', 'yu yu', 'nu nu', 'hal hal' }
+console.log(names.size); // 5
+console.log(names[0]); // undefined
+
+names.forEach(name=>{
+	console.log(name);
+});                  
+
+// console.log(names[Symbol.iterator]()); 
+//  [Set Iterator] {
+//   'aung aung',
+//   'kyaw kyaw',
+//   'yu yu',
+//   'nu nu',
+//   'hal hal'
+// }
+// console.log(names[Symbol.iterator]().next()); // { value: 'aung aung', done: false }
+// console.log(names[Symbol.iterator]().next()); // { value: 'aung aung', done: false }
+// console.log(names[Symbol.iterator]().next().value);  // aung aung
+// console.log(names[Symbol.iterator]().next().value); // aung aung
+
+const getnames = names[Symbol.iterator]();
+// console.log(getnames);
+// [Set Iterator] {
+//     'aung aung',
+//     'kyaw kyaw',
+//     'yu yu',
+//     'nu nu',
+//     'hal hal'
+//   } 
+console.log(getnames.next().value); // aung aung
+console.log(getnames.next().value); // kyaw kyaw
+console.log(getnames.next().value); // yu yu
+console.log(getnames.next().value); // nu nu
+console.log(getnames.next().value); // hal hal
+

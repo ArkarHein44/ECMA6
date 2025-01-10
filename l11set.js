@@ -42,3 +42,33 @@ names.forEach(name=>{
 // nu nu
 // hal hal
 
+let students = new Set();
+students.add("hla hla").add("nu nu").add("yoon yoon");
+students.add('aung aung').add('kyaw kyaw').add('zaw zaw');
+
+console.log(students);
+// Set(6) {
+// 	'hla hla',
+// 	'nu nu',
+// 	'yoon yoon',
+// 	'aung aung',
+// 	'kyaw kyaw',
+// 	'zaw zaw'
+//   }
+console.log(students.size) ; // 6
+
+console.log(students.has('nu nu')); // true
+console.log(students.has('Nu Nu')); // false
+
+students.delete('nu nu');
+
+console.log(students);
+// Set(5) { 'hla hla', 'yoon yoon', 'aung aung', 'kyaw kyaw', 'zaw zaw' }
+console.log(students.size) ; // 5
+
+students.clear();
+
+console.log(students); /// Set(0) {}
+console.log(students.size) ; // 0
+
+
