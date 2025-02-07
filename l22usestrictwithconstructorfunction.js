@@ -27,7 +27,7 @@ const vehicleObj = new Vehicle();
 vehicleObj.brand();
 
 // Function call 
-const getvehiclebrand = carvehicleObjObj.brand;
+const getvehiclebrand = vehicleObj.brand;
 getvehiclebrand();
 
 // 31US 

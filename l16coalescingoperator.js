@@ -36,4 +36,13 @@ console.log(result6); // 100 (0 is falsy)
 let result7 = num2 ?? num1;
 console.log(result7); // 100 
 
+// => Nested Coalescing 
+let firstname = null;
+let lastname = undefined;
+let familyname = "Bo Bo";
+
+let result8 = firstname ?? lastname ?? familyname;
+
+console.log(result8);
+
 // 17CO
