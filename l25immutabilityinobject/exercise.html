@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>immutability in Object</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+        // immutability in Object
+
+        // Method 1
+        const employee = {name:"Hsu Myat", age:20};
+        const newemployee = Object.assign({}, employee, {name:"Aye Aye"});
+
+        console.log(employee); // {name: 'Hsu Myat', age: 20}
+        console.log(newemployee); // {name: 'Aye Aye', age: 20}
+
+        // Method 2
+        const staff = {name:"Aung Htet",age:30};
+        const newstaff = {...staff, name:"Htet Aung"};
+        console.log(staff); // {name: 'Aung Htet', age: 30}
+        console.log(newstaff); // {name: 'Htet Aung', age: 30}
+
+        const student = {
+            name: "Thuzar",
+            age:18,
+            contact:{
+                city:"Yangon",
+                country:"Myanmar"
+            }
+        };
+
+        // const newstudent = {
+        //     ...student,
+        //     name:"Muyar"
+        // }
+
+        // newstudent.contact.city = "Bago"; // if we use this way ! city will change both object
+
+        const newstudent = {
+            ...student,
+            name:"Muyar",
+            contact:{
+                ...student.contact,city:"Mandalay"
+            }
+        }
+
+        console.log(student);
+        console.log(newstudent);
+
+    </script>
+</body>
+</html>
