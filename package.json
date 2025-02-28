@@ -12,6 +12,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "immer": "^10.1.1",
     "lodash": "^4.17.21"
   }
 }

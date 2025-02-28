@@ -66,14 +66,24 @@ console.log(rstone); // Hello HSU LAE. Have a nice day
 const rsttwo = setmessage2(setuppercase(removespace(username)))(`Have a nice day`);
 console.log(rsttwo); // Hello HSU LAE. Have a nice day
 
-
-
-
-// with lodash (using compose
+// with lodash (using compose)
 const rstthreee = compose(setmessage1, setuppercase, removespace);
 console.log(rstthreee(username)); // Hello HSU LAE. Have a nice day
-
 
 // https://lodash.com/
 // npm i -g npm
 // npm i --save lodash
+
+// with lodash (using pipe)
+const rstfour = pipe(removespace, setuppercase, setmessage1);
+console.log(rstfour(username)); /// 
+
+// with lodash (using compose)
+const rstfive = compose((name)=>setmessage2(name)("Nice to meet you"),setuppercase, removespace);
+console.log(rstfive(username)); // 
+
+// with lodash (using pipe)
+const rstsix = pipe(removespace, setuppercase, (name)=>setmessage2(name)("Nice to meet you"));
+console.log(rstsix(username)); // 
+
+const rstseven = pipe(removespace, setuppercase, setmessage3)
