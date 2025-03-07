@@ -75,3 +75,38 @@ console.log("Syntax");
 console.log("const fun = originalfunction.bind(thisArg,arg1,arg2,...");
 
 // 28BD 
+
+// => bind()
+// syntax 
+// const fun = originalfunction.bind(thisArg,arg1,arg2,..);
+
+const member = {
+    name: "Aye Aye",
+    greet:function(){
+        console.log(`Hello, my name is ${this.name}`);
+    },
+    greeting:function(greet,punctuation){
+        console.log(`${greet}, my name is ${this.name} ${punctuation}`)
+    }
+}
+
+member.greet();
+
+const user = {name:"Kyaw Kyaw"};
+const funone = member.greet.bind(user);
+funone();
+
+const funtwo = member.greeting.bind(user);
+funtwo("Hi", "!");  // Hi, my name is Kyaw Kyaw !
+
+function hifi(greet,msg,bye){
+    console.log(`${greet}, my name is ${this.name}, ${msg}, ${bye}`);
+}
+
+const employee = {name: "Yoon Yoon"}
+
+const funthree = hifi.bind(employee);
+funthree("Hello", "I am 28 years old.", "Nice to meet you!");
+
+const funfour =hifi.bind(employee,"Hi", "I am 30 years old.", "Nice to meet you!");
+funfour();
