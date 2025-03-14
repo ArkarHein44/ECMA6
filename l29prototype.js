@@ -50,4 +50,4 @@ y.__proto__;
 
 Object.getPrototypeOf(x) === x.__proto__;
 
-// 7PT
+// 7PT 
