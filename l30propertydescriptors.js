@@ -65,3 +65,27 @@ Object.defineProperty(phoneobj, "brand",{
 delete phoneobj.brand; // this won't work
 console.log(phoneobj);
 console.log(phoneobj.brand);
+
+// => Defining Multiple Properties (Object.defineProperties())
+const book = {};
+
+Object.defineProperties(book, {
+    title:{
+        value: "Javascript Essentials",
+        writable: false
+    },
+    price:{
+        value: 30000,
+        writable:true
+    }
+});
+
+console.log(book);
+
+book.title = "Javascript ES6";
+console.log(book);
+console.log(book.title);
+
+book.price = 50000;
+console.log(book);
+console.log(book.price);
