@@ -1,0 +1,13 @@
+{
+  "name": "l36importexport",
+  "version": "1.0.0",
+  "main": "filea.js",
+  "scripts": {
+    "test": "node filea"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module"
+}

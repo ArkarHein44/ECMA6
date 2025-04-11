@@ -1,0 +1,13 @@
+{
+  "name": "l39sampleapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module"
+}

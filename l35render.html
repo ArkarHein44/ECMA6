@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <title>Render</title>
+</head>
+<body>
+    
+
+    <script type="text/javascript">
+        const students = {
+            name:"Aung Kyaw",
+            age:19,
+            subjects:["Myanmar","English","Math","Chemistry","Physics","Biology"]
+        }
+
+        const htmlone = `
+            <div>
+                <h3>${students.name}</h3>
+                <p>${students.age}</p>
+                <ul>
+                    <li>${students.subjects[0]}</li>
+                    <li>${students.subjects[1]}</li>
+                    <li>${students.subjects[2]}</li>
+                    <li>${students.subjects[3]}</li>
+                    <li>${students.subjects[4]}</li>
+                    <li>${students.subjects[5]}</li>
+                </ul>
+            </div>
+        `;
+
+        document.write(htmlone);
+
+        function myrender(courses){
+            return `
+                <ul>
+                    ${courses.map(course=>`<li>${course}</li>`).join('')}
+                </ul>
+            `;
+        }
+
+        const htmltwo = `
+            <div>
+                <h3>${students.name}</h3>
+                <p>${students.age}</p>
+                ${myrender(students.subjects)}
+            </div>
+        `;
+
+        document.write(htmltwo);
+    </script>
+</body>
+</html>
