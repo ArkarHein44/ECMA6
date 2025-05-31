@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflect API</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+        // Reflect API 
+
+        // => Reflect.get, Reflect.set
+
+        const user = {
+            name: "Hsu Hsu",
+            age: 25
+        };
+
+        console.log(user.name);
+        console.log(Reflect.get(user,"name"));
+
+        Reflect.set(user,"age",30);
+        console.log(user.age);
+        
+        // Reflect.has 
+        const staff = {
+            name: "Aye Aye"
+        };
+
+        console.log("name" in staff);
+        console.log(Reflect.has(staff,"name"));
+
+        // => Reflect.construct(classobj, [parameter])
+
+        function Employee(name){
+            this.name = name;
+        }
+
+        const employeeObj = Reflect.construct(Employee,['Tun Tun']);
+        console.log(employeeObj);
+        console.log(employeeObj.name);
+
+        // Reflect.defineProperty
+
+        const obj = {};
+        Reflect.defineProperty(obj,"age",{
+            value:30,
+            writable:true,
+            enumerable: true,
+            configurable: true
+        });
+
+        console.log(obj);
+        console.log(obj.age);
+
+        class Person {
+            constructor(name){
+                this.name = name
+            }
+        }
+
+        let personObj1 = new Person("Su Su");
+        console.log(personObj1);
+
+        let personObj2 = Reflect.construct(Person,['Aung Kyaw']);
+        console.log(personObj2);
+
+        console.log(Reflect.getPrototypeOf(personObj1) === Person.Prototype);
+        console.log(Reflect.getPrototypeOf(personObj2) === Person.Prototype);
+    </script>
+
+</body>
+</html>
