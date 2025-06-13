@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Object</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+        // => syntax 
+        // new Proxy(obj, handler);
+
+        const users = {
+            name:"Nu Nu",
+            age: 20
+        };
+
+        const proxyuser = new Proxy(users,{
+            // trap methods 
+
+            get(target,property){
+                console.log(`Searching key name os = ${property}`);
+                return property in target ? target[property] : "Not Found";
+            }
+        });
+
+        console.log(users.name); 
+        console.log(users.age);
+        console.log(users.city);
+
+        console.log(proxyuser.name);
+        console.log(proxyuser.age);
+        console.log(proxyuser.city);
+
+        // 13PR
+
+    </script>
+
+</body>
+</html>

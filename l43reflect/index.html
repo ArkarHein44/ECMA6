@@ -68,6 +68,25 @@
 
         console.log(Reflect.getPrototypeOf(personObj1) === Person.Prototype);
         console.log(Reflect.getPrototypeOf(personObj2) === Person.Prototype);
+
+        // Reflect.setPrototypeOf(target object, Prototype object)
+
+        const objone = {
+            great(){
+                console.log("Hello, I'm greet method from objone.");
+            }
+        }
+
+        class People{
+            constructor(name){
+                this.name = name;
+            }
+        }
+
+        const peopleObj = new People("Kyaw Kyaw");
+        console.log(peopleObj);
+
+        // console.log(Object.)
     </script>
 
 </body>
